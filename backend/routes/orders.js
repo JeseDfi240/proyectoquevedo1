@@ -3,7 +3,7 @@ const router = express.Router();
 const Order = require('../models/Order');
 const { protect, admin } = require('../middleware/auth');
 
-// Crear un pedido
+
 router.post('/', protect, async (req, res) => {
   const { orderItems, shippingAddress, paymentMethod, totalPrice } = req.body;
   if (orderItems && orderItems.length === 0) {
@@ -25,7 +25,7 @@ router.post('/', protect, async (req, res) => {
   }
 });
 
-// Obtener los pedidos del usuario autenticado
+
 router.get('/myorders', protect, async (req, res) => {
   try {
     const orders = await Order.find({ user: req.user._id });

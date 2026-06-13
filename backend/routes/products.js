@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require('../models/Product');
 const { protect, admin } = require('../middleware/auth');
 
-// Obtener todos los productos (Catálogo principal)
+
 router.get('/', async (req, res) => {
   try {
     const products = await Product.find({});
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Obtener producto individual
+
 router.get('/:id', async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Crear nuevo producto (Solo Administrador)
+
 router.post('/', protect, admin, async (req, res) => {
   const { name, price, description, image, category, stock } = req.body;
   try {
@@ -36,7 +36,7 @@ router.post('/', protect, admin, async (req, res) => {
   }
 });
 
-// Actualizar producto (Solo Administrador)
+
 router.put('/:id', protect, admin, async (req, res) => {
   const { name, price, description, image, category, stock } = req.body;
   try {
@@ -58,7 +58,7 @@ router.put('/:id', protect, admin, async (req, res) => {
   }
 });
 
-// Eliminar producto (Solo Administrador)
+
 router.delete('/:id', protect, admin, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);

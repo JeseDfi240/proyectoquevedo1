@@ -8,7 +8,7 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };
 
-// Registro de usuarios
+
 router.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Login de usuarios
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Obtener perfil del usuario actual
+
 router.get('/profile', protect, async (req, res) => {
   const user = await User.findById(req.user._id);
   if (user) {

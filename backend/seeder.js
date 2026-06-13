@@ -35,7 +35,7 @@ const products = [
 
 const importData = async () => {
   try {
-    // Elimina productos anteriores para evitar duplicados al re-ejecutar
+
     await Product.deleteMany();
 
     await Product.insertMany(products);
