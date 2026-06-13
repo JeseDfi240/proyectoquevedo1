@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-primary: #121214;
+  --bg-secondary: #1a1a1e;
+  --bg-tertiary: #26262b;
+  --accent-color: #ff5e00; /* Naranja atlético vibrante */
+  --accent-gradient: linear-gradient(135deg, #ff5e00, #ff9100);
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-color: #3f3f46;
+  --success-color: #10b981;
+  --font-sans: 'Outfit', sans-serif;
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedores Principales */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Grid de Catálogo */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Tarjeta Deportiva de Producto */
+.product-card {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 30px rgba(255, 94, 0, 0.15);
+}
+
+.product-image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+/* Botones Premium */
+.btn-primary {
+  background: var(--accent-gradient);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 15px rgba(255, 94, 0, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--text-muted);
+}
